@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+subprojects {
+    jar {
+        print("plugin jar start!!")
+        archiveBaseName = "plugin-${pluginId}"
+        destinationDirectory = file(pluginsDir)
+    }
+    // plugin 테스크 정의
+    // Jar 파일 생성
+//    task plugin(type: Jar) {
+//        print("plugin start!!")
+//        // 이름
+//        archiveBaseName = "plugin-${pluginId}"
+//        // 생성된 jar파일을 classes 폴더에 넣음
+//        into('../run/plugins') {
+//            with jar
+//        }
+//        // 런타임 클래스 패스의 종속성을 lib 폴더에 넣음
+//        into('lib') {
+//            from configurations.runtimeClasspath
+//        }
+//        // 파일 형태
+//        archiveExtension ='zip'
+//        destinationDirectory = file(pluginsDir)
+//    }
+
+//    task assemblePlugin(type: Copy) {
+//        from plugin
+//        into pluginsDir
+//    }
+}
+
+task packingPlugins {
+    print("pakingPlugins start!!")
+
+    dependsOn subprojects.jar
+}
