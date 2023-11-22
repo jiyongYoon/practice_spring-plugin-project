@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/greeting")
 @RequiredArgsConstructor
 public class GreetingController {
 
