@@ -1,0 +1,13 @@
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+ext.pluginsDir = rootProject.rootDir.path + '/run/plugins'
+print("rootProject.buildDir.path: " + ext.pluginsDir)
+
+task build(dependsOn: [':app:bootJar'])

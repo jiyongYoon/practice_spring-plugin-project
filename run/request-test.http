@@ -1,0 +1,8 @@
+### 모든 Greeting 불러오기
+GET http://localhost:8080/test
+
+### Greeting 타입별로 불러오기 (WELCOME)
+GET http://localhost:8080/test/WELCOME
+
+### Greeting 타입별로 불러오기 (BYE)
+GET http://localhost:8080/test/BYE
